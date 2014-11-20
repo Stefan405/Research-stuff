@@ -18,6 +18,7 @@ class KnowledgeNodeEngine
 // Calculates a hash number from the given tag
  
  public int hash(String tag){
+  //Find the first two letter of the string 'tag'.
    char indexZero = tag.charAt(0);
    char indexOne = tag.charAt(1);
    int hashNum = indexZero*20+indexOne % 546;
