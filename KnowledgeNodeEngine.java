@@ -42,8 +42,33 @@ class KnowledgeNodeEngine
  }
  
  // Returns a node based on the search tag, uses hash()
- public void think(ArrayList input, int effort); // Does a spread of activation search
- public void thinkAge(ArrayList input, int effort, int maxAge);
+ public void think(ArrayList input, int effort){// Does a spread of activation search
+   for(int i = 0; i < input.size(); i++){
+     KnowledgeNode node = find(input.get(i));//use the tag from the arraylist input and use find() to return the node
+     //with that tag in the hashtable
+     node.activation++;//increase its activation by 1
+     if(i==effort){//if we reach effort then end the method.
+       return;
+     }
+   }
+ }
+ 
+     
+   
+   
+ 
+ public void thinkAge(ArrayList input, int effort, int maxAge){
+    for(int i = 0; i < input.size(); i++){
+     KnowledgeNode node = find(input.get(i));//use the tag from the arraylist input and use find() to return the node
+     if(node.age < maxAge){//with that tag in the hashtable
+       node.activation++;//increase its activation by 1
+     }
+     if(i==effort){//if we reach effort then end the method.
+       return;
+     }
+   }
+ }
+ 
 
  // Things to implement later
  private ArrayList<KnowledgeNode> ageLevels[]; // Entire database of knowledge nodes indexed by age
